@@ -1,5 +1,3 @@
-import React from 'react';
-
 // 1. Two Sum
 
 // Easy
@@ -17,7 +15,7 @@ import React from 'react';
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
-// The Hashing Approach (Two-pass Hash Table Approach)
+// Hashing Approach (Two-pass Hash Table Approach)
 
 // 1. In the first iteration, we add each element's value and its index to the hash table.
 // 2. Then, in the second iteration we check if each element's complement (target − nums[i]) exists in the table.
@@ -49,6 +47,8 @@ function twoSum(nums, target) {
         }
     }
 }
+
+console.log(twoSum([6, 8, 2, 11, 7], 9))
 
 // Naive Approach (Brute Force Approach)
 
@@ -85,16 +85,4 @@ function twoSum2(nums, target) {
     }
 }
 
-class Leetcode0001 extends React.Component {
-    render() {
-        return (
-            <div>
-                <div>1. Two Sum</div>
-                <div>{JSON.stringify(twoSum([6, 8, 2, 11, 7], 9))}</div>
-                <div>{JSON.stringify(twoSum2([6, 8, 2, 11, 7], 9))}</div>
-            </div>
-        )
-    }
-}
-
-export default Leetcode0001
+console.log(twoSum2([6, 8, 2, 11, 7], 9))
