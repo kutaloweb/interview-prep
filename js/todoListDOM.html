@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<div class="todos"></div>
+<form class="add">
+    <input type="text" placeholder="New Todo JS" name="add">
+    <button>Add</button>
+</form>
+<script>
+    const newTodoForm = document.querySelector('.add')
+    const todoList = document.querySelector('.todos')
+
+    newTodoForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const html = `
+             <div>
+                 <input type="text" class="edit-input" hidden>
+                 <button class="save" hidden>Save</button>
+                 <span class="todo-item">${newTodoForm.add.value}</span>
+                 <button class="delete">Delete</button>
+                 <button class="edit">Edit</button>
+             </div>
+        `
+        todoList.innerHTML += html
+        newTodoForm.reset()
+    })
+
+    todoList.addEventListener('click', e => {
+        const parent = e.target.parentElement
+        if (e.target.classList.contains('delete')) {
+            parent.remove()
+        }
+        if (e.target.classList.contains('edit')) {
+            parent.querySelector('.todo-item').hidden = true
+            parent.querySelector('.save').hidden = false
+            parent.querySelector('.edit-input').hidden = false
+            parent.querySelector('.edit-input').value = parent.querySelector('.todo-item').innerText
+        }
+        if (e.target.classList.contains('save')) {
+            parent.querySelector('.todo-item').hidden = false
+            parent.querySelector('.save').hidden = true
+            parent.querySelector('.edit-input').hidden = true
+            parent.querySelector('.todo-item').innerText = parent.querySelector('.edit-input').value
+        }
+    })
+</script>
+</body>
+</html>
