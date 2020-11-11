@@ -1,5 +1,6 @@
 // 9. Palindrome Number
 
+// Easy
 // Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.
 // Follow up: Could you solve it without converting the integer to a string?
 // Example 1:
@@ -70,13 +71,13 @@ console.log(isPalindrome(121))
 function isPalindrome2(x) {
     if (x < 0) return false
     let str = x.toString()
-    let mid = Math.floor(str.length / 2);
+    let mid = Math.floor(str.length / 2)
     for (let i = 0; i < mid; i++) {
         if (str[i] !== str[str.length - 1 - i]) {
-            return false;
+            return false
         }
     }
-    return true;
+    return true
 }
 
-console.log(isPalindrome2(121));
+console.log(isPalindrome2(121))
