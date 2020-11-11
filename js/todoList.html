@@ -33,13 +33,11 @@
             parent.remove()
         }
         if (e.target.classList.contains('edit')) {
-            parent.querySelector('.todo-item').hidden = true
             parent.querySelector('.save').hidden = false
             parent.querySelector('.edit-input').hidden = false
             parent.querySelector('.edit-input').value = parent.querySelector('.todo-item').innerText
         }
         if (e.target.classList.contains('save')) {
-            parent.querySelector('.todo-item').hidden = false
             parent.querySelector('.save').hidden = true
             parent.querySelector('.edit-input').hidden = true
             parent.querySelector('.todo-item').innerText = parent.querySelector('.edit-input').value
