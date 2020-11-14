@@ -23,7 +23,7 @@
 //  1. We repeatedly pop the last digit off of x and push it to the back of the result.
 //  2. We compare the reverted number with the original argument "x".
 
-// Time complexity: O(n), O(log(n))
+// Time complexity: O(log10(x)), because each iteration divides the input by 10
 
 // Trace table
 
@@ -57,7 +57,7 @@ console.log(isPalindrome(121))
 //     2.1. If the input is palindromic, both the pointers should point to equivalent characters, at all times.
 //     2.2. If this condition is not met at any point of time, we break and return early.
 
-// Time complexity: O(n)
+// Time complexity: O(x)
 
 // Trace table
 

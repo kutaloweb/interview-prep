@@ -35,10 +35,6 @@
 // Input: s = "MCMXCIV"
 // Output: 1994
 // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
-// Constraints:
-// 1 <= s.length <= 15
-// s contains only the characters ('I', 'V', 'X', 'L', 'C', 'D', 'M').
-// It is guaranteed that s is a valid roman numeral in the range [1, 3999].
 
 // Hashing Approach
 
@@ -46,9 +42,9 @@
 // 2. If current value of numeral is less than the value of next numeral, then we subtract this value from the running result.
 // 3. Else we add this value to the result.
 
-// Time complexity: O(n)
+// Time complexity: O(s)
 
-// Trace tables
+// Trace table
 
 // s = "MCMXCIV"
 // result = 0
@@ -62,12 +58,12 @@
 // 5    1        5           F            1989
 // 6    5     undefined      F            1994
 
-function romanToInt(str) {
+function romanToInt(s) {
     const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 }
     let result = 0
-    for (let i = 0; i < str.length; i++) {
-        let current = map[str[i]]
-        let next = map[str[i + 1]]
+    for (let i = 0; i < s.length; i++) {
+        let current = map[s[i]]
+        let next = map[s[i + 1]]
         if (current < next) {
             result -= current
         } else {
@@ -82,10 +78,10 @@ console.log(romanToInt("MCMXCIV"))
 // Switch Case Approach (Brute Force Approach)
 
 //  1. We traverse a string and pick each character at a time.
-//  2. For characters "I", "X", "C" we add or subtract value, based on the value of next character.
+//  2. For characters "I", "X", "C" we add or subtract value, based on the value of the next character.
 //  3. For other characters we only add value to result.
 
-// Time complexity: O(n)
+// Time complexity: O(s)
 
 // Trace table
 

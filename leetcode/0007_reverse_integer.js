@@ -22,7 +22,7 @@
 //      1.1. We use "d = x % 10; x = x / 10" for the pop operation and "res = res * 10 + d" for the push operation.
 //      1.2. Before returning the result we check whether it can cause an overflow and whether is negative or not.
 
-// Time complexity: O(n), O(log(n))
+// Time complexity: O(log(x))
 
 // Trace table
 
@@ -56,7 +56,7 @@ console.log(reverse(-123))
 // 3. Lastly, we’ll join our array back into a string with join('').
 // 4. Before returning the parseInt(result) we check whether it can cause an overflow and whether is negative or not.
 
-// Time complexity: O(n)
+// Time complexity: O(x)
 
 // Trace table
 
