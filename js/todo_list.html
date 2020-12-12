@@ -27,11 +27,11 @@
                  <button class="delete">Delete</button>
              </div>
         `
-        todoList.innerHTML += html
+        todo_list.innerHTML += html
         newTodoForm.reset()
     })
 
-    todoList.addEventListener('click', e => {
+    todo_list.addEventListener('click', e => {
         const parent = e.target.parentElement
         if (e.target.classList.contains('delete')) {
             parent.remove()
