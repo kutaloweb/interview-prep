@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>Todo list</title>
 </head>
+<body>
 <div class="todos"></div>
 <form class="add">
-    <input type="text" placeholder="New Todo JS" name="add">
+    <label>
+        <input type="text" placeholder="New Todo JS" name="add">
+    </label>
     <button>Add</button>
 </form>
 <script>
@@ -19,8 +23,8 @@
                  <input type="text" class="edit-input" hidden>
                  <button class="save" hidden>Save</button>
                  <span class="todo-item">${newTodoForm.add.value}</span>
-                 <button class="delete">Delete</button>
                  <button class="edit">Edit</button>
+                 <button class="delete">Delete</button>
              </div>
         `
         todoList.innerHTML += html
@@ -35,11 +39,15 @@
         if (e.target.classList.contains('edit')) {
             parent.querySelector('.save').hidden = false
             parent.querySelector('.edit-input').hidden = false
+            parent.querySelector('.edit').hidden = true
+            parent.querySelector('.todo-item').hidden = true
             parent.querySelector('.edit-input').value = parent.querySelector('.todo-item').innerText
         }
         if (e.target.classList.contains('save')) {
             parent.querySelector('.save').hidden = true
             parent.querySelector('.edit-input').hidden = true
+            parent.querySelector('.edit').hidden = false
+            parent.querySelector('.todo-item').hidden = false
             parent.querySelector('.todo-item').innerText = parent.querySelector('.edit-input').value
         }
     })
