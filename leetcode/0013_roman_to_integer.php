@@ -1,3 +1,5 @@
+<?php
+
 // 13. Roman to Integer
 
 // Easy
@@ -46,35 +48,34 @@
 
 // Trace table
 
-// s = "MCMXCIV"
-// result = 0
+// $s = "MCMXCIV"
+// $result = 0
 
-// i   current   next   current < next   result
-// 0    1000     100         F            1000
-// 1    100      1000        T            900
-// 2    1000     10          F            1900
-// 3    10       100         T            1890
-// 4    100      1           F            1990
-// 5    1        5           T            1989
-// 6    5     undefined      F            1994
+// $i   $current   $next   $current < $next   $result
+// 0      1000      100         F               1000
+// 1      100       1000        T               900
+// 2      1000      10          F               1900
+// 3      10        100         T               1890
+// 4      100       1           F               1990
+// 5      1         5           T               1989
+// 6      5         0           F               1994
 
-function romanToInt(s) {
-    const map = { I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000 }
-    let result = 0
-    for (let i = 0; i < s.length; i++) {
-        let current = map[s[i]]
-        let next = map[s[i + 1]]
-        if (current < next) {
-            result -= current
+function romanToInt($s) {
+    $map = ['I' => 1, 'V' => 5, 'X' => 10, 'L' => 50, 'C' => 100, 'D' => 500, 'M' => 1000];
+    $result = 0;
+    for ($i = 0; $i < strlen($s); $i++) {
+        $current = isset($map[$s[$i]]) ? $map[$s[$i]] : 0;
+        $next = isset($s[$i + 1]) && isset($map[$s[$i + 1]]) ? $map[$s[$i + 1]] : 0;
+        if ($current < $next) {
+            $result -= $current;
         } else {
-            result += current
+            $result += $current;
         }
-        console.log(result)
     }
-    return result
+    return $result;
 }
 
-console.log(romanToInt("MCMXCIV"))
+var_dump(romanToInt("MCMXCIV"));
 
 // Switch Case Approach (Brute Force Approach)
 
@@ -86,63 +87,62 @@ console.log(romanToInt("MCMXCIV"))
 
 // Trace table
 
-// s = "MCMXCIV"
-// result = 0
+// $s = "MCMXCIV"
+// $result = 0
 
-//  i    j  s[i]  next  result
-//  0    1   M      C    1000
-//  1    2   C      M    900
-//  2    3   M      X    1900
-//  3    4   X      C    1890
-//  4    5   C      I    1990
-//  5    6   I      V    1989
-//  6    7   V    undef  1994
+//  $i    $j  $s[$i] $next  $result
+//  0     1     M      C      1000
+//  1     2     C      M      900
+//  2     3     M      X      1900
+//  3     4     X      C      1890
+//  4     5     C      I      1990
+//  5     6     I      V      1989
+//  6     7     V     NULL    1994
 
-function romanToInt2(s) {
-    let result = 0
-    let next
-    for (let i = 0; i < s.length; i++) {
-        next = s[i + 1]
-        switch (s[i]) {
+function romanToInt2($s) {
+    $result = 0;
+    for ($i = 0; $i < strlen($s); $i++) {
+        $next = isset($s[$i + 1]) ? $s[$i + 1] : null;
+        switch ($s[$i]) {
             case "I":
-                if (next === "V" || next === "X") {
-                    result -= 1
+                if ($next === "V" || $next === "X") {
+                    $result -= 1;
                 } else {
-                    result += 1
+                    $result += 1;
                 }
-                break
+                break;
             case "V":
-                result += 5
-                break
+                $result += 5;
+                break;
             case "X":
-                if (next === "L" || next === "C") {
-                    result -= 10
+                if ($next === "L" || $next === "C") {
+                    $result -= 10;
                 } else {
-                    result += 10
+                    $result += 10;
                 }
-                break
+                break;
             case "L":
-                result += 50
-                break
+                $result += 50;
+                break;
             case "C":
-                if (next === "D" || next === "M") {
-                    result -= 100
+                if ($next === "D" || $next === "M") {
+                    $result -= 100;
                 } else {
-                    result += 100
+                    $result += 100;
                 }
-                break
+                break;
             case "D":
-                result += 500
-                break
+                $result += 500;
+                break;
             case "M":
-                result += 1000
-                break
+                $result += 1000;
+                break;
             default:
-                result = 0
-                break
+                $result = 0;
+                break;
         }
     }
-    return result
+    return $result;
 }
 
-console.log(romanToInt2("MCMXCIV"))
+var_dump(romanToInt2("MCMXCIV"));
