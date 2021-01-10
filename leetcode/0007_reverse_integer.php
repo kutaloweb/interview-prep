@@ -49,7 +49,7 @@ function reverse($x) {
     return $result > 2 ** 31 - 1 ? 0 : $sign * $result;
 }
 
-print(reverse(-123));
+var_dump(reverse(-123));
 
 // Naive Approach (Built-in Reverse Method Approach)
 
@@ -72,4 +72,4 @@ function reverse2($x) {
     return intval($result) > 2 ** 31 - 1 ? 0 : $sign * intval($result);
 }
 
-print(reverse2(-123));
+var_dump(reverse2(-123));
