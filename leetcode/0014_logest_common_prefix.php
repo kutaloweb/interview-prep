@@ -64,11 +64,11 @@ var_dump(longestCommonPrefix(["flower", "flow", "flight"]));
 // $prefix = "flower"
 
 // $i    strpos($strs[$i], $prefix)       $prefix
-// 1     strpos("flow", "flower") -1       flowe
-// 1     strpos("flow", "flowe") -1        flow
+// 1     strpos("flow", "flower") false    flowe
+// 1     strpos("flow", "flowe") false     flow
 // 1     strpos("flow", "flow") 0          flow
-// 2     strpos("flight", "flow") -1       flo
-// 2     strpos("flight", "flo") -1        fl
+// 2     strpos("flight", "flow") false    flo
+// 2     strpos("flight", "flo") false     fl
 // 2     strpos("flight", "fl") 0          fl
 
 function longestCommonPrefix2($strs) {

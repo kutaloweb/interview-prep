@@ -22,14 +22,14 @@
 // Input: s = "{[]}"
 // Output: true
 
-// Stack Approach
+// Stack Naive Approach
 
 // 1. We initialize a stack to be used in the algorithm.
 // 2. We process each bracket of the expression one at a time.
 // 3. If we encounter an opening bracket, we simply push it onto the stack. We will process it later.
 // 4. If we encounter a closing bracket, we check the element on top of the stack.
 //     4.1. If the element at the top of the stack is an opening bracket of the same type then we pop it off the stack.
-//     4.3. Else, this implies an invalid expression.
+//     4.2. Else, this implies an invalid expression.
 // 5. In the end, if we are left with a stack still having elements, then this implies an invalid expression.
 
 // Time complexity: O(n)
@@ -90,10 +90,10 @@ console.log(isValid("{[]}"))
 
 // 1. We initialize a stack and the mapping where key is the closing bracket and value is the opening bracket.
 // 2. We process each bracket of the expression one at a time.
-// 3. If we encounter a closing bracket, we check the element on top of the stack (whether the mapping for this bracket matches)
-//     3.1. If the element at the top of the stack is an opening bracket of the same type then we pop it off the stack.
-//     3.2. Else, this implies an invalid expression.
-// 4. If we encounter an opening bracket, we simply push it onto the stack. We will process it later.
+// 3. If we encounter an opening bracket, we simply push it onto the stack. We will process it later.
+// 4. If we encounter a closing bracket, we check the element on top of the stack (whether the mapping for this bracket matches)
+//     4.1. If the element at the top of the stack is an opening bracket of the same type then we pop it off the stack.
+//     4.2. Else, this implies an invalid expression.
 // 5. In the end, if we are left with a stack still having elements, then this implies an invalid expression.
 
 // Time complexity: O(n)
