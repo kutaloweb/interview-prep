@@ -44,55 +44,9 @@ function removeDuplicates(nums) {
             nums[prev] = nums[cur]
         }
     }
-    nums.length = prev + 1
+    nums = nums.slice(0, prev + 1);
+    console.log(nums)
     return prev + 1
 }
 
 console.log(removeDuplicates([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
-
-// Brute Force Approach (Using Extra Space Approach)
-
-// 1. We create an auxiliary array to store unique elements.
-// 2. We traverse input array and one by one copy unique elements to auxiliary array.
-// 3. We store the last element as whether it is unique or repeated, it hasn't stored previously.
-// 4. We copy the contents of auxiliary array back to the original array.
-
-// Time complexity: O(n)
-
-// Trace table
-
-// nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-// temp = []
-// j = 0
-
-// i  nums[i] !== nums[i + 1]   j   temp
-// 0        0 != 0 F            0   []
-// 1        0 != 1 T            1   [ 0 ]
-// 2        1 != 1 F            1   [ 0 ]
-// 3        1 != 1 F            1   [ 0 ]
-// 4        1 != 2 T            2   [ 0, 1 ]
-// 5        2 != 2 F            2   [ 0, 1 ]
-// 6        2 != 3 T            3   [ 0, 1, 2 ]
-// 7        3 != 3 F            3   [ 0, 1, 2 ]
-// 8        3 != 4 T            4   [ 0, 1, 2, 3 ]
-// -           -                5   [ 0, 1, 2, 3, 4 ]
-
-function removeDuplicates2(nums) {
-    if (nums.length === 0) return nums.length
-    let temp = []
-    let j = 0
-    for (let i = 0; i < nums.length - 1; i++) {
-        if (nums[i] !== nums[i + 1]) {
-            temp[j] = nums[i]
-            j++
-        }
-    }
-    temp[j] = nums[nums.length - 1]
-    j++
-    for (let i = 0; i < j; i++) {
-        nums[i] = temp[i]
-    }
-    return j
-}
-
-console.log(removeDuplicates2([0, 0, 1, 1, 1, 2, 2, 3, 3, 4]))
