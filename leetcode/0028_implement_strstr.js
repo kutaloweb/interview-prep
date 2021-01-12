@@ -28,10 +28,10 @@
 // haystack = "hello"
 // needle = "ll"
 
-// i  haystack.substr(i, needle.length)
-// 0                  he
-// 1                  el
-// 2                  ll
+// i  substr === needle   haystack.substr(i, needle.length)
+// 0         F                        he
+// 1         F                        el
+// 2         T                        ll
 
 function strStr(haystack, needle) {
     if (needle.length === 0) return 0
@@ -48,9 +48,9 @@ console.log(strStr("hello", "ll"))
 // Brute Force Approach
 
 // 1. For each character in the haystack we check if its succeeding characters match each character of the needle.
-//     1.1. We use haystack[i + j] to iterate over the haystack in the inner loop.
+//     1.1. We use haystack[i + j] in the inner loop.
 //     1.2. If there is a mismatch with needle[j] then we just break out of the loop.
-//     1.3. When inner loop finishes we should have a check needle.length === j, in which we can return the index that we had in the outer loop.
+//     1.3. When inner loop finishes we should have a check if needle.length === j, in which we can return the index that we had in the outer loop.
 
 // Time complexity: O(mn)
 
